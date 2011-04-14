@@ -60,4 +60,20 @@
 ;; dired-x pour C-x C-j
 (require 'dired-x)
 
+(require 'recentf)
+(defun recentf-ido-find-file ()
+  "Find a recent file using ido."
+  (interactive)
+  (let ((file (ido-completing-read "Choose recent file: " recentf-list nil t)))
+    (when file
+      (find-file file))))
+(global-set-key (kbd "C-x f") 'recentf-ido-find-file)
+(recentf-mode 1)
+
+(require 'cl)
+(require 'saveplace)
+(require 'ffap)
+(require 'uniquify)
+(require 'ansi-color)
+
 (require 'saganov-packages)

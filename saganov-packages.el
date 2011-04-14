@@ -24,6 +24,7 @@
 
    (:name package
 	  :after (lambda()
+ 	           (package-initialize)
 		   (setq package-archives )
 		   (add-to-list 'package-archives
 				'("original" . "http://tromey.com/elpa/"))
@@ -46,10 +47,21 @@
    (:name goto-last-change
           :after (lambda ()
                    (global-set-key (kbd "C-x C-/") 'goto-last-change)))
-   (:name auto-dictionary :type elpa)
-   (:name gist            :type elpa)
-   (:name lisppaste       :type elpa)))
 
+   (:name idle-highlight  :type elpa)
+   (:name js2-mode        :type elpa)
+   (:name css-mode        :type elpa)
+   (:name paredit         :type elpa)
+   (:name auto-dictionary
+	  :after (lambda () (autoload 'paredit-mode "paredit" "" t))
+	  :type elpa)
+   (:name yaml-mode
+	  :after (lambda () (autoload 'yaml-mode "yaml-mode" "" t))
+	  :type elpa)
+   (:name gist            :type elpa)
+   (:name find-file-in-project :type elpa)
+   (:name lisppaste       :type elpa)))
+ 
 (when window-system
   (add-to-list 'el-get-sources  'color-theme-tango))
 
