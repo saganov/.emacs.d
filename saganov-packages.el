@@ -51,8 +51,8 @@
    (:name idle-highlight  :type elpa)
    (:name js2-mode        :type elpa)
    (:name css-mode        :type elpa)
-   (:name paredit         :type elpa)
-   (:name auto-dictionary
+   (:name auto-dictionary :type elpa)
+   (:name paredit
 	  :after (lambda () (autoload 'paredit-mode "paredit" "" t))
 	  :type elpa)
    (:name yaml-mode
