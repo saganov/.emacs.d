@@ -48,12 +48,17 @@
           :after (lambda ()
                    (global-set-key (kbd "C-x C-/") 'goto-last-change)))
 
-   (:name idle-highlight  :type elpa)
+   (:name idle-highlight
+          :type elpa
+;;          :after (lambda ()
+;;                   (add-hook 'coding-hook 'idle-highlight))
+                   )
    (:name js2-mode        :type elpa)
    (:name css-mode        :type elpa)
    (:name auto-dictionary :type elpa)
    (:name paredit
-	  :after (lambda () (autoload 'paredit-mode "paredit" "" t))
+	  :after (lambda ()
+                   (autoload 'paredit-mode "paredit" "" t))
 	  :type elpa)
    (:name yaml-mode
 	  :after (lambda () (autoload 'yaml-mode "yaml-mode" "" t))

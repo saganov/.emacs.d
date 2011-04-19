@@ -202,7 +202,7 @@
 (add-hook 'coding-hook 'turn-on-save-place-mode)
 (add-hook 'coding-hook 'pretty-lambdas)
 (add-hook 'coding-hook 'add-watchwords)
-(add-hook 'coding-hook 'idle-highlight)
+;;;;(add-hook 'coding-hook 'idle-highlight)
 
 (defun run-coding-hook ()
   "Enable things that are convenient across all coding buffers."
@@ -307,11 +307,11 @@
   (let ((name (file-relative-name file)))
     (vc-git-command buf 0 name "blame" "-w" rev)))
 
-(defun esk-paredit-nonlisp ()
-  "Turn on paredit mode for non-lisps."
-  (set (make-local-variable 'paredit-space-delimiter-chars)
-       (list ?\"))
-  (paredit-mode 1))
+;;;;(defun esk-paredit-nonlisp ()
+;;;;  "Turn on paredit mode for non-lisps."
+;;;;  (set (make-local-variable 'paredit-space-delimiter-chars)
+;;;;       (list ?\"))
+;;;;  (paredit-mode 1))
 
 (defun message-point ()
   (interactive)
@@ -641,12 +641,13 @@
    "Face used to dim parentheses."
    :group 'starter-kit-faces)
 
-(defun turn-on-paredit ()
-  (paredit-mode +1))
+;;;;(defun turn-on-paredit ()
+;;;;  (paredit-mode +1))
 
-(eval-after-load 'paredit
-  ;; need a binding that works in the terminal
-  '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
+;;;;(eval-after-load 'paredit
+;;;;  ;; need a binding that works in the terminal
+;;;;  '(define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp))
+
 
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'emacs-lisp-mode-hook 'esk-remove-elc-on-save)
@@ -675,15 +676,15 @@
                                                (match-end 1) "ƒ")
                                nil))))))
 
-(dolist (x '(scheme emacs-lisp lisp clojure))
-  (when window-system
-    (font-lock-add-keywords
-     (intern (concat (symbol-name x) "-mode"))
-     '(("(\\|)" . 'esk-paren-face))))
-  (add-hook
-   (intern (concat (symbol-name x) "-mode-hook")) 'turn-on-paredit)
-  (add-hook
-   (intern (concat (symbol-name x) "-mode-hook")) 'run-coding-hook))
+;;;;(dolist (x '(scheme emacs-lisp lisp clojure))
+;;;;  (when window-system
+;;;;    (font-lock-add-keywords
+;;;;     (intern (concat (symbol-name x) "-mode"))
+;;;;     '(("(\\|)" . 'esk-paren-face))))
+;;;;  (add-hook
+;;;;   (intern (concat (symbol-name x) "-mode-hook")) 'turn-on-paredit)
+;;;;  (add-hook
+;;;;   (intern (concat (symbol-name x) "-mode-hook")) 'run-coding-hook))
 
 (defun pretty-lambdas-haskell ()
   (font-lock-add-keywords
@@ -784,23 +785,23 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . espresso-mode))
 (add-hook 'espresso-mode-hook 'moz-minor-mode)
-(add-hook 'espresso-mode-hook 'esk-paredit-nonlisp)
+;;;;(add-hook 'espresso-mode-hook 'esk-paredit-nonlisp)
 (add-hook 'espresso-mode-hook 'run-coding-hook)
 (setq espresso-indent-level 2)
 
 ;; If you prefer js2-mode, use this instead:
 ;; (add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
 
-(eval-after-load 'espresso
-  '(progn (define-key espresso-mode-map "{" 'paredit-open-curly)
-          (define-key espresso-mode-map "}" 'paredit-close-curly-and-newline)
-          ;; fixes problem with pretty function font-lock
-          (define-key espresso-mode-map (kbd ",") 'self-insert-command)
-          (font-lock-add-keywords
-           'espresso-mode `(("\\(function *\\)("
-                             (0 (progn (compose-region (match-beginning 1)
-                                                       (match-end 1) "ƒ")
-                                       nil)))))))
+;;;;(eval-after-load 'espresso
+;;;;  '(progn (define-key espresso-mode-map "{" 'paredit-open-curly)
+;;;;          (define-key espresso-mode-map "}" 'paredit-close-curly-and-newline)
+;;;;          ;; fixes problem with pretty function font-lock
+;;;;          (define-key espresso-mode-map (kbd ",") 'self-insert-command)
+;;;;          (font-lock-add-keywords
+;;;;           'espresso-mode `(("\\(function *\\)("
+;;;;                             (0 (progn (compose-region (match-beginning 1)
+;;;;                                                       (match-end 1) "ƒ")
+;;;;                                       nil)))))))
 
 (eval-after-load 'cperl-mode
   '(progn
