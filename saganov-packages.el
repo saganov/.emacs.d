@@ -42,7 +42,10 @@
 
    (:name magit
           :after (lambda ()
-                   (global-set-key (kbd "C-x C-z") 'magit-status)))
+                   ;;(define-key global-map "\M-\C-g" 'magit-status)
+                   (global-set-key (kbd "C-x g") 'magit-status)
+                   ;;(global-set-key (kbd "C-x C-z") 'magit-status))
+          ))
 
    (:name goto-last-change
           :after (lambda ()
