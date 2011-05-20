@@ -14,7 +14,7 @@
 (require 'el-get)
 (setq
  el-get-sources
- '(el-get
+ '(;el-get
    php-mode-improved
    auto-complete
    yasnippet
