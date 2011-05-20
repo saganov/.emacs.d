@@ -25,7 +25,8 @@
       inhibit-startup-message t
       transient-mark-mode t
       color-theme-is-global t
-      delete-by-moving-to-trash t
+      default-vertical-scroll-bar nil
+      ;delete-by-moving-to-trash t
       shift-select-mode nil
       mouse-yank-at-point t
       require-final-newline t
