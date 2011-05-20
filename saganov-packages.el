@@ -21,6 +21,7 @@
    switch-window
    cssh
    sicp
+   color-theme-zenburn
 
    (:name package
 	  :after (lambda()
@@ -68,10 +69,12 @@
 	  :type elpa)
    (:name gist            :type elpa)
    (:name find-file-in-project :type elpa)
-   (:name lisppaste       :type elpa)))
+   (:name lisppaste       :type elpa)
+   (:name color-theme
+      :after (lambda() (load "color-theme-zenburn/zenburn") (zenburn)))))
  
-(when window-system
-  (add-to-list 'el-get-sources  'color-theme-tango))
+;;(when window-system
+;;  (add-to-list 'el-get-sources '(:name color-theme :after (lambda() (load "color-theme-zenburn/zenburn") (zenburn))) 'color-theme-zenburn))
 
 (el-get 'sync)
 
