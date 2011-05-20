@@ -8,7 +8,7 @@
 (setq djcb-read-only-cursor-type 'hbar)
 (setq djcb-overwrite-color       "red")
 (setq djcb-overwrite-cursor-type 'block)
-(setq djcb-normal-color          "red")
+(setq djcb-normal-color          "yellow")
 (setq djcb-normal-cursor-type    'bar)
 
 (defun djcb-set-cursor-according-to-mode ()
