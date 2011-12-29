@@ -6,7 +6,7 @@
 ;;
 
 (setq dotfiles-dir (file-name-directory (or load-file-name (buffer-file-name))))
-;;;;(setq sitelisp-dir (expand-file-name "src" dotfiles-dir))
+(setq sitelisp-dir (expand-file-name "src" dotfiles-dir))
 
 ;; Org-mode bug on Ubuntu: Cannot exit from Emacs with msg
 ;; move-file-to-trash: Non-regular file: Is a directory, /tmp/babel-XXXXXXX
@@ -23,5 +23,3 @@
 ;; load up the main file
 ;;;;(org-babel-load-file (expand-file-name "starter-kit.org" dotfiles-dir))
 (load-file (expand-file-name "starter-kit.el" dotfiles-dir))
-
-;;; init.el ends here
