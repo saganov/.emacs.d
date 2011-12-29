@@ -69,3 +69,37 @@
 (global-set-key (kbd "M-[") 'move-border-left)
 (global-set-key (kbd "M-]") 'move-border-right)
 
+(setq php-mode-force-pear t)
+
+
+(setq saganov-php-style
+      '((c-basic-offset . 4)
+        ;;(c-comment-only-line-offset 0 . 0)
+        (c-comment-only-line-offset . 0)
+        (c-block-comment-prefix . "//")
+        (c-hanging-braces-alist
+         (defun-open before after)
+         (defun-close . c-snug-1line-defun-close)
+         (substatement-open after)
+         (block-close . c-snug-do-while)
+         (arglist-cont-nonempty))
+        (c-hanging-braces-alist
+         (substatement-open before after)
+         (arglist-cont-nonempty))
+        ;;(c-hanging-semi&comma-criteria)
+        (c-cleanup-list . (scope-operator
+                           empty-defun-braces
+                           defun-close-semi))
+        (c-offsets-alist . ((arglist-close . c-lineup-arglist)
+                            (case-label . +)
+                            (statement-case-open . +)
+                            (substatement-open . 0)
+                            (substatement-label . 0)
+                            (label . 0)
+                            (statement-cont . +)))))
+
+
+(add-hook 'php-mode-hook
+          '(lambda ()
+             (c-add-style "saganov" saganov-php-style t)
+             (c-set-style "saganov")))
