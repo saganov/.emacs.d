@@ -34,13 +34,17 @@
 				'("technomancy" . "http://repo.technomancy.us/emacs/") t)
 		   (add-to-list 'package-archives
 				'("marmalade" . "http://marmalade-repo.org/packages/") t)))
-   
    (:name buffer-move
           :after (lambda ()
                    (global-set-key (kbd "<C-S-up>")     'buf-move-up)
                    (global-set-key (kbd "<C-S-down>")   'buf-move-down)
                    (global-set-key (kbd "<C-S-left>")   'buf-move-left)
                    (global-set-key (kbd "<C-S-right>")  'buf-move-right)))
+
+    (:name sunrise-commander
+          :after (lambda ()
+                   (global-set-key (kbd "C-c x") 'sunrise)
+                   (global-set-key (kbd "C-c X") 'sunrise-cd)))
 
    (:name magit
           :after (lambda ()
@@ -71,6 +75,7 @@
    (:name gist            :type elpa)
    (:name find-file-in-project :type elpa)
    (:name lisppaste       :type elpa)
+   ;;(:name sunrise-commander :type elpa)
    (:name color-theme
       :after (lambda() (load "color-theme-zenburn/zenburn") (zenburn)))))
  
