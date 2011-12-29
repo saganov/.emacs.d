@@ -22,6 +22,7 @@
    cssh
    sicp
    color-theme-zenburn
+   openwith
 
    (:name package
 	  :after (lambda()
