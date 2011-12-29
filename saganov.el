@@ -25,3 +25,9 @@
       (setq cursor-type djcb-normal-cursor-type))))
 
 (add-hook 'post-command-hook 'djcb-set-cursor-according-to-mode)
+
+(load "/home/saganov/.emacs.d/src/fortunes/fortunes.el")
+(require 'fortunes)
+
+
+
