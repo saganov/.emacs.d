@@ -1,6 +1,6 @@
 
 ;;(defvar fortune-file (expand-file-name  "fortunes" sitelisp-dir)
-(defvar fortune-file "/usr/home/saganov/.emacs.d/src/fortunes/it"
+(defvar fortune-file "/home/saganov/.emacs.d/src/fortunes/it"
   "The file that fortunes come from.")
 
 (defvar fortune-strings nil
