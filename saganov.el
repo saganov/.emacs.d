@@ -103,3 +103,22 @@
           '(lambda ()
              (c-add-style "saganov" saganov-php-style t)
              (c-set-style "saganov")))
+
+
+;;(load "/home/saganov/.emacs.d/src/edit-server/edit-server.el")
+(require 'edit-server)
+(when (and (require 'edit-server nil t) (daemonp))
+  (edit-server-start))
+
+(add-hook 'edit-server-text-mode-hook
+          (lambda ()(progn()
+                     (auto-complete-mode)
+                     (flyspell-mode))))
+
+(load "/home/saganov/.emacs.d/src/simple-wiki/simple-wiki.el")
+(require 'simple-wiki)
+(add-to-list 'auto-mode-alist '("mozex.textarea" . simple-wiki-mode))
+
+;;(load "gnuserv")
+
+

@@ -23,6 +23,7 @@
    sicp
    color-theme-zenburn
    openwith
+   emacschrome
 
    (:name package
 	  :after (lambda()
